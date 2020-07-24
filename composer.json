@@ -1,0 +1,25 @@
+{
+    "name": "andy-c/swoole-eureka-client",
+    "description": "A php eureka client",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "monolog/monolog": "^1.25",
+        "ext-swoole": ">=4.4",
+        "ext-apcu": ">=5.1.12"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "andy-c",
+            "email": "cylbdda@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EurekaService\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
