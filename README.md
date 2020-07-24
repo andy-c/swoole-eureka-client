@@ -4,6 +4,7 @@
 
 swoole-eureka-client 是一款基于swoole process是实现的spring clound eureka 客户端，继承了swoole协程的高性能特征
 默认采用守护进程的方式，可以结合swoole_server & systemd & supervisor 来实现长期运行，自动重启
+此版本类似sidecar，但是非sidecar版本，并未劫持应用流量，后续会添加sidecar版本
 
 
 ## 功能
