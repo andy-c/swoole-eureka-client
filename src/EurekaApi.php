@@ -168,16 +168,16 @@ class EurekaApi implements RegisterCenterInterface
                 //check application heath
                 $this->request->setHost($this->eurekaInfoConfig->getIpAddr());
                 $this->request->setPort($this->eurekaInfoConfig->getPort());
-//                $appHealthy = $this->request->get('/'.$this->eurekaInfoConfig->getHeathCheckUrl());
-//                if($appHealthy->getCode()!= 200){
-//                    $options['query']['status'] = 'DOWN';
-//                }
-//                //check application body
-//                $body = $appHealthy->getBody() ? json_decode($appHealthy->getBody(),true) :[];
-//                if(!is_array($body) ||$body['health']=='UNHEALTHY'){
-//                    $options['query']['status'] = 'DOWN';
-//                }
-//                unset($appHealthy,$body);
+                $appHealthy = $this->request->get('/'.$this->eurekaInfoConfig->getHeathCheckUrl());
+                if($appHealthy->getCode()!= 200){
+                    $options['query']['status'] = 'DOWN';
+                }
+                //check application body
+                $body = $appHealthy->getBody() ? json_decode($appHealthy->getBody(),true) :[];
+                if(!is_array($body) ||$body['health']=='UNHEALTHY'){
+                    $options['query']['status'] = 'DOWN';
+                }
+                unset($appHealthy,$body);
 
                 Helper::getLogger()->info("application-health-check-status is ".$options['query']['status']);
 
