@@ -245,6 +245,10 @@ class EurekaApi implements RegisterCenterInterface
                     return false;
                 }
                 //cache file
+                $path_parts = pathinfo(self::$cache_file);
+                if(!is_dir($path_parts['dirname'])){
+                    mkdir($path_parts['dirname'],0777,true);
+                }
                 file_put_contents(self::$cache_file,$fullApps->getBody());
                 $apps = $fullApps->getBody() ? json_decode($fullApps->getBody(),true):[];
                 if(!is_array($apps) && !empty($apps)){

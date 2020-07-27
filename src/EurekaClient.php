@@ -128,8 +128,8 @@ class EurekaClient
     */
     public function run(EurekaAPi $eurekaAPi){
         try{
-            //handle console command
-            $this->handleConsoleCommand();
+            //Daemon
+            Process::daemon(false,false);
             //int pool
             $this->pool = new Pool($this->workerNum,0,0,true);
             //set coroutine config
