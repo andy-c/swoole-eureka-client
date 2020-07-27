@@ -25,6 +25,10 @@ swoole-eureka-client 是一款基于swoole process是实现的spring clound eure
 cd ./swoole-eureka-client/src && php index.php
 ```
 
+## 停止运行
+```
+ kill -15 $masterpid
+```
 
 ## License
 
