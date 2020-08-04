@@ -70,7 +70,7 @@ class EurekaInfoConfig
     /**
      * @var string
     */
-    private $lastDirtyTimestamp;
+    private $lastDirtyTimestamp = (string)(round(microtime(true) * 1000));
 
     /**
      * @return callable
@@ -111,7 +111,7 @@ class EurekaInfoConfig
     }
 
     /**
-     * @var string
+     * @var array
      */
     private $eurekaHost=[
         [
@@ -137,7 +137,7 @@ class EurekaInfoConfig
     /**
      * @param string $eurekaHost
      */
-    public function setEurekaHost(string $eurekaHost): void
+    public function setEurekaHost(array $eurekaHost): void
     {
         $this->eurekaHost = $eurekaHost;
     }
