@@ -52,6 +52,12 @@ class EurekaClient
     const EUREKA_MASTER_NAME="eureka-master-process";
 
     /**
+     * master pid file
+     * @var string
+    */
+    const MASTER_PID_FILE='/opt/eureka_master.pid';
+
+    /**
      * @return self
     */
     public static function getInstance():self {
@@ -148,6 +154,8 @@ class EurekaClient
            $this->eurekaApi = $eurekaAPi;
             //set master process name
             swoole_set_process_name(self::EUREKA_MASTER_NAME);
+            //save master pid to file
+            file_put_contents(self::MASTER_PID_FILE,getmypid());
             //set handler
            $this->pool->on('WorkerStart',function($pool,$workerId){
                $this->workerStart($pool,$workerId);
